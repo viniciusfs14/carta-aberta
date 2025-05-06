@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Você 🌄</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+      background-image: url('https://images.ecycle.com.br/wp-content/uploads/2022/10/05145956/david-mullins-3Jnws1iRSwk-unsplash-scaled.jpg.webp');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 120px;
+    }
+
+    #balloon {
+      background: #fff;
+      border-radius: 15px;
+      padding: 15px 20px;
+      max-width: 70%;
+      font-size: 1.3rem;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    #balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 10px solid transparent;
+      border-top-color: #fff;
+    }
+
+    #character {
+      width: 150px;
+      margin-top: 30px;
+    }
+
+    #nextBtn {
+      margin-top: 30px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #nextBtn:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .birds {
+      position: absolute;
+      top: 15%;
+      width: 100px;
+      height: 50px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center;
+      background-size: contain;
+      animation: birds 30s linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    @keyframes birds {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="birds"></div>
+
+  <div class="container">
+    <div id="balloon"></div>
+    <img id="character" src="https://www.pngplay.com/wp-content/uploads/14/Snoopy-Holding-Woodstock-PNG-HD-Quality.gif" alt="Personagem fofo">
+    <button id="nextBtn">Toque aqui</button>
+  </div>
+
+  <script>
+    const frases = [
+      "Ei, Bom dia!",
+      "Só passando aqui para te desejar um excelente dia hahaha",
+      "...",
+      "Ontem fiquei preocupado com você...",
+      "Vi no seu Instagram que saiu de São João com o coração apertado, sozinha, depois do ultrassom…",
+      "Mesmo não sendo mais namorados, quero que saiba que pode contar comigo para o que precisar.",
+      "Quero que você saiba que você é uma mulher muito forte!",
+      "E que você pode ter certeza de que vai vencer todos os desafios que a vida te der...",
+      "Você é foda, Sara!",
+      "Eu tinha escrito uma cartinha para ler para você ontem",
+      "e um dos trechos dessa cartinha era...",
+      "Eu posso ter sido chato às vezes, enchendo você de presentes nerds e coisas físicas...",
+      "mas essa era a minha forma de agradecer o que tudo o que você fez por mim",
+      "Sabe aquela frase a pessoa certa vem para colorir o que é preto e branco?",
+      "Você é essa pessoa na minha vida",
+      "Antes de te conhecer, o meu mundo era preto e branco",
+      "e com você ele se tornou colorido e alegre!",
+      "Minha felicidade é saber que tenho você na minha vida, Sara.",
+      "Eu sei que, de certa forma, eu me apeguei muito",
+      "mas o meu dia só se ilumina com uma simples mensagem sua...",
+      "E esses dias sem conversar com você têm sido muito difíceis para mim...",
+      "Minha vida sem você é tipo a Legião Urbana sem o Renato Russo...",
+      "sem graça e incompleta",
+      "Olha... não precisa responder se quiser...",
+      "só peguei um trechinho da carta que eu ia ler para você",
+      "e coloquei aqui para desabafar com você um pouquinho...",
+      "estou até me sentindo mais leve agora haha...",
+      "é isso...",
+      "novamente...",
+      "Te desejo um excelente dia!",
+      "Um bom trabalho",
+      "e não se esqueça",
+      "sempre estarei aqui por você...",
+      "você sempre será para mim...",
+      "O meu bem 💚"
+
+    ];
+
+    let index = 0;
+    const balloon = document.getElementById("balloon");
+    const button = document.getElementById("nextBtn");
+
+    button.addEventListener("click", () => {
+      if (index < frases.length) {
+        balloon.style.opacity = 0;
+        setTimeout(() => {
+          balloon.textContent = frases[index];
+          balloon.style.opacity = 1;
+          index++;
+          if (index === frases.length) {
+            button.textContent = "Com carinho 💛";
+            button.disabled = true;
+            button.style.opacity = 0.5;
+            button.style.cursor = "default";
+          }
+        }, 300);
+      }
+    });
+  </script>
+
+</body>
+</html>
