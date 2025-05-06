@@ -13,7 +13,7 @@
       text-align: center;
       height: 100vh;
       overflow: hidden;
-      background-image: url('https://images.ecycle.com.br/wp-content/uploads/2022/10/05145956/david-mullins-3Jnws1iRSwk-unsplash-scaled.jpg.webp');
+      background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1950&q=80');
       background-size: cover;
       background-position: center;
       position: relative;
@@ -44,12 +44,13 @@
       background: #fff;
       border-radius: 15px;
       padding: 15px 20px;
-      max-width: 70%;
+      max-width: 80%;
       font-size: 1.3rem;
       position: relative;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       opacity: 0;
       transition: opacity 0.6s;
+      margin-bottom: 20px;
     }
 
     #balloon::after {
@@ -63,12 +64,11 @@
     }
 
     #character {
-      width: 150px;
-      margin-top: 30px;
+      width: 120px;
+      margin-bottom: 15px;
     }
 
     #nextBtn {
-      margin-top: 30px;
       padding: 12px 25px;
       font-size: 1rem;
       border: none;
@@ -85,7 +85,7 @@
 
     .birds {
       position: absolute;
-      top: 15%;
+      top: 10%;
       width: 100px;
       height: 50px;
       background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center;
@@ -99,6 +99,24 @@
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
+
+    /* Responsividade para dispositivos móveis */
+    @media (max-width: 600px) {
+      #balloon {
+        font-size: 1rem;
+        max-width: 90%;
+      }
+
+      #character {
+        width: 100px;
+      }
+
+      #nextBtn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -107,48 +125,17 @@
 
   <div class="container">
     <div id="balloon"></div>
-    <img id="character" src="https://www.pngplay.com/wp-content/uploads/14/Snoopy-Holding-Woodstock-PNG-HD-Quality.gif" alt="Personagem fofo">
-    <button id="nextBtn">Toque aqui</button>
+    <img id="character" src="https://i.imgur.com/O28h4WA.png" alt="Personagem fofo">
+    <button id="nextBtn">Clique para ouvir o que eu tenho a dizer</button>
   </div>
 
   <script>
     const frases = [
-      "Ei, Bom dia!",
-      "Só passando aqui para te desejar um excelente dia hahaha",
-      "...",
-      "Ontem fiquei preocupado com você...",
-      "Vi no seu Instagram que saiu de São João com o coração apertado, sozinha, depois do ultrassom…",
-      "Mesmo não sendo mais namorados, quero que saiba que pode contar comigo para o que precisar.",
-      "Quero que você saiba que você é uma mulher muito forte!",
-      "E que você pode ter certeza de que vai vencer todos os desafios que a vida te der...",
-      "Você é foda, Sara!",
-      "Eu tinha escrito uma cartinha para ler para você ontem",
-      "e um dos trechos dessa cartinha era...",
-      "Eu posso ter sido chato às vezes, enchendo você de presentes nerds e coisas físicas...",
-      "mas essa era a minha forma de agradecer o que tudo o que você fez por mim",
-      "Sabe aquela frase a pessoa certa vem para colorir o que é preto e branco?",
-      "Você é essa pessoa na minha vida",
-      "Antes de te conhecer, o meu mundo era preto e branco",
-      "e com você ele se tornou colorido e alegre!",
-      "Minha felicidade é saber que tenho você na minha vida, Sara.",
-      "Eu sei que, de certa forma, eu me apeguei muito",
-      "mas o meu dia só se ilumina com uma simples mensagem sua...",
-      "E esses dias sem conversar com você têm sido muito difíceis para mim...",
-      "Minha vida sem você é tipo a Legião Urbana sem o Renato Russo...",
-      "sem graça e incompleta",
-      "Olha... não precisa responder se quiser...",
-      "só peguei um trechinho da carta que eu ia ler para você",
-      "e coloquei aqui para desabafar com você um pouquinho...",
-      "estou até me sentindo mais leve agora haha...",
-      "é isso...",
-      "novamente...",
-      "Te desejo um excelente dia!",
-      "Um bom trabalho",
-      "e não se esqueça",
-      "sempre estarei aqui por você...",
-      "você sempre será para mim...",
-      "O meu bem 💚"
-
+      "Ei, tá tudo bem não estar bem agora.",
+      "Você é importante, mesmo quando sente que não é.",
+      "Eu me importo com você, mesmo em silêncio.",
+      "A dor passa. Mas você? Você continua incrível.",
+      "Queria te dar um abraço agora."
     ];
 
     let index = 0;
